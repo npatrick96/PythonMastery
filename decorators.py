@@ -55,7 +55,7 @@ def returnThree():
     
 print(returnThree) # this line should print 4!
 
-# That END. For more, check the links at the top. Thanks! 
+# That is the END. For more, check the links at the top. Thanks! 
 
 # N O T E: the code in this file was tested using Python 2.7.10. If it doesn't work on your machine, use the below commented lines to verify which version of Python you are using! You know, just in case!
 
