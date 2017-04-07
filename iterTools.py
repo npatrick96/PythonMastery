@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # I. INFINITE ITERATORS 
 from itertools import count, cycle, repeat
 # I.1. count()
@@ -25,7 +27,7 @@ for i in range (3):
 
 
 
-# print("____________")
-# 
-# import sys
-# print(sys.version)
+print("____________")
+
+import sys
+print(sys.version)
