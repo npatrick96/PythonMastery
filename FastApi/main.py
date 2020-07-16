@@ -57,11 +57,13 @@ async def read_user_item(
     return item
 
 
-# required query parameters
+# query parameters: required (need), optional (limit), default value (skip)
 # http://127.0.0.1:8000/items/foo-item?needy=sooooneedy
 @app.get("/items/{item_id}")
-async def read_user_item(item_id: str, needy: str):
-    item = {"item_id": item_id, "needy": needy}
+async def read_user_item(
+    item_id: str, needy: str, skip: int = 0, limit: Optional[int] = None
+):
+    item = {"item_id": item_id, "needy": needy, "skip": skip, "limit": limit}
     return item
 
 
