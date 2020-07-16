@@ -1,5 +1,5 @@
 from enum import Enum
-
+from typing import Optional
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -22,8 +22,16 @@ async def root():
 # async def read_item(item_id):
 #     return {"item_id": item_id}
 
+
+# @app.get("/items/{item_id}")
+# async def read_item(item_id: int):
+#     return {"item_id": item_id}
+
+
 @app.get("/items/{item_id}")
-async def read_item(item_id: int):
+async def read_item(item_id: str, q: Optional[str] = None):
+    if q:  # http://127.0.0.1:8000/items/10?q=100
+        return {"item_id": item_id, "q": q}
     return {"item_id": item_id}
 
 
