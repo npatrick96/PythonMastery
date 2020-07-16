@@ -27,12 +27,19 @@ async def root():
 # async def read_item(item_id: int):
 #     return {"item_id": item_id}
 
-
+# http://127.0.0.1:8000/items/10?q=letterQ
+# http://127.0.0.1:8000/items/10?q=letterQ&short=off
+# Note: 'on', 'off', 'yes', 'no', 'true', 'false' are valid BOOL in Python
 @app.get("/items/{item_id}")
-async def read_item(item_id: str, q: Optional[str] = None):
-    if q:  # http://127.0.0.1:8000/items/10?q=100
-        return {"item_id": item_id, "q": q}
-    return {"item_id": item_id}
+async def read_item(item_id: str, q: Optional[str] = None, short: bool = False):
+    item = {"item_id": item_id}
+    if q:
+        item.update({"q": q})
+    if not short:
+        item.update(
+            {"description": "This is an amazing item that has a long description"}
+        )
+    return item
 
 
 @app.get("/model/{model_name}")
